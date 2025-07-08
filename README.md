@@ -11,7 +11,7 @@ the image itself, and that's where this extension comes in.
 
 ## Installation
 
-Requires MediaWiki 1.35 or higher, as well as the third-party tool [https://exiftool.org/ exiftool],
+Requires MediaWiki 1.35 or higher, as well as the third-party tool [exiftool](https://exiftool.org/),
 with the command aliased to "exiftool".
 
 This can be installed on a Linux distribution with the command:
@@ -26,11 +26,14 @@ wfLoadExtension( "StripExifGPSData" );
 ## Configuration
 
 You can optionally edit StripExifGPSData.php to change the line containing:
+
 `$cmd = "exiftool -overwrite_original -gps:all= " . escapeshellarg( $path );`
+
 to strip any desired metadata. For instance, to strip all metadata:
+
 `$cmd = "exiftool -overwrite_original -all= " . escapeshellarg( $path );`
 
-Documentation can be found on [https://exiftool.org/ the exiftool website].
+Documentation can be found on [the exiftool website](https://exiftool.org/).
 
 ## Notes
 * You are not required to set `$wgShowEXIF = false;` to use this extension.

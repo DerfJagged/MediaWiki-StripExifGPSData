@@ -47,3 +47,4 @@ caching enabled.
 To remove metadata from a single file: <pre>exiftool -gps:all= -overwrite_original /var/www/YOUR_SITE/wiki/images/a/bc/File_Containing_GPS_Info.jpg</pre>
 To remove metadata from all files: <pre>exiftool -csv -filename -gps:GPSLatitude -gps:GPSLongitude /var/www/YOUR_SITE/wiki/images/ -r > ./output.csv</pre>
 Open the CSV, sort by GPSLatitude, then copy all filenames with GPS info to a file called input.txt and upload it to the server and run: <pre>tr -d '\r' < input.txt > cleanlist.txt && xargs -a cleanlist.txt exiftool -gps:all= -overwrite_original</pre>
+Run <code>php maintenance/refreshImageMetadata.php</code> to update the metadata in the backend.

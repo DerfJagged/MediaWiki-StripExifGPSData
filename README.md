@@ -42,3 +42,8 @@ Documentation can be found on [the exiftool website](https://exiftool.org/).
 * Given that the GPS metadata is stripped after the image is uploaded, you
 may still see the original metadata-tagged image for some time if you have
 caching enabled.
+* This extension will not remove any metadata from images already on your wiki. To do this, you can use exiftool as described below.
+
+To remove metadata from a single file: <pre>exiftool -gps:all= -overwrite_original /var/www/YOUR_SITE/wiki/images/a/bc/File_Containing_GPS_Info.jpg</pre>
+To remove metadata from all files: <pre>exiftool -csv -filename -gps:GPSLatitude -gps:GPSLongitude /var/www/YOUR_SITE/wiki/images/ -r > ./output.csv</pre>
+Open the CSV, sort by GPSLatitude, then copy all filenames with GPS info to a file called input.txt and upload it to the server and run: <pre>tr -d '\r' < input.txt > cleanlist.txt && xargs -a cleanlist.txt exiftool -gps:all= -overwrite_original</pre>

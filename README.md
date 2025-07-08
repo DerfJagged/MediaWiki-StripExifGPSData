@@ -11,8 +11,8 @@ the image itself, and that's where this extension comes in.
 
 ## Installation
 
-Requires MediaWiki 1.35 or higher, as well as the third-party tool [exiftool](https://exiftool.org/),
-with the command aliased to "exiftool".
+Requires MediaWiki 1.35 or higher, as well as the third-party tool [exiftool](https://exiftool.org/) 
+installed on the OS with "exiftool" as a valid command.
 
 This can be installed on a Linux distribution with the command:
 `apt install libimage-exiftool-perl`

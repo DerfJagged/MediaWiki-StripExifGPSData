@@ -1,0 +1,17 @@
+{
+	"name": "StripExifGPSData",
+	"version": "1.0",
+	"author": "[https://consolemods.org/wiki/User:Derf Derf Jagged]",
+	"url": "//mediawiki.org/wiki/Extension:StripExifGPSData",
+	"description": "Strips GPS information out of EXIF metadata of common image types.",
+	"AutoloadClasses": {
+        	"StripExifGPSDataHooks": "StripExifGPSData.php"
+    },
+	"Hooks": {
+	    	"UploadComplete": "StripExifGPSDataHooks::onUploadComplete"
+	},
+	"requires": {
+		"MediaWiki": ">= 1.35"
+	},
+	"manifest_version": 1
+}

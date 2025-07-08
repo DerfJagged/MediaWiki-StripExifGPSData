@@ -11,11 +11,13 @@ the image itself, and that's where this extension comes in.
 
 ## Installation
 
-Requires MediaWiki 1.35 or higher, as well as the third-party tool [exiftool](https://exiftool.org/) 
-installed on the OS with "exiftool" as a valid command.
+Requires MediaWiki 1.35 or higher.
 
-This can be installed on a Linux distribution with the command:
-`apt install libimage-exiftool-perl`
+Install the third-party tool [exiftool](https://exiftool.org/) on the OS and
+ensure "exiftool" is a valid command. This can be installed on Linux with:
+```
+apt install libimage-exiftool-perl
+```
 
 Add the following to LocalSettings.php:
 

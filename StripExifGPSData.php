@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Shell\Shell;
 
 class StripExifGPSDataHooks {
     public static function onUploadComplete( UploadBase $upload_base ) {
@@ -29,15 +30,20 @@ class StripExifGPSDataHooks {
         }
 
         // exiftool must be installed - apt install libimage-exiftool-perl
-        $cmd = "exiftool -overwrite_original -gps:all= " . escapeshellarg( $path );
-        exec( $cmd, $output, $ret );
+		$cmd = Shell::command(
+	    	'exiftool',
+	    	'-gps:all=',
+	    	'-overwrite_original',
+	    	$path
+		)->restrict( Shell::RESTRICT_DEFAULT );
+		$result = $cmd->execute();
+		$ret = $result->getExitCode();
     	
         if ($ret === 0) {
-    	    //Remove metadata from displaying on File: page
+    	    //Remove GPS metadata from displaying on File: page
     	    $file->upgradeRow();
     	}
     	
         return true;
     }
 }
-
